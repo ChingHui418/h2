@@ -1,0 +1,65 @@
+package tw.hui.h2.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "orders")
+public class Order {
+	@Id
+	@Column(name = "OrderID")
+	private int orderId;
+	
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "CustomerID")
+	private Customer customer;
+	
+	@ManyToOne
+	@JoinColumn(name = "EmployeeID")
+	private Employee employee;
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+	// ---------------------------------
+	@OneToMany(mappedBy = "order")
+	public List<OrderDetial> orderDetails = new ArrayList<>();
+
+	public List<OrderDetial> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetial> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
+	
+	
+}
