@@ -5,6 +5,11 @@ import org.hibernate.cfg.Configuration;
 
 import tw.hui.h2.entity.Customer;
 import tw.hui.h2.entity.Employee;
+import tw.hui.h2.entity.Order;
+import tw.hui.h2.entity.OrderDetail;
+import tw.hui.h2.entity.OrderDetailPK;
+import tw.hui.h2.entity.Product;
+import tw.hui.h2.entity.User;
 
 
 public class HibernateUtil {
@@ -17,6 +22,10 @@ public class HibernateUtil {
 			
 			config.addAnnotatedClass(Customer.class);
 			config.addAnnotatedClass(Employee.class);
+			config.addAnnotatedClass(Order.class);
+			config.addAnnotatedClass(OrderDetail.class);
+			config.addAnnotatedClass(Product.class);
+			
 			
 			sessionFactory = config.buildSessionFactory();
 		}

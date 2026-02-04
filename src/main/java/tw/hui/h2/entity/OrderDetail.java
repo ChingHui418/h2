@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "orderdetails")
 @IdClass(OrderDetailPK.class)
-public class OrderDetial {
+public class OrderDetail {
 	@Id
 	@Column(name = "OrderID")
 	private int orderId;

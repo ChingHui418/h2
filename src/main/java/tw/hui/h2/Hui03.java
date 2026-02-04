@@ -12,7 +12,7 @@ public class Hui03 {
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			String sql = """
-					SELECT EmployeeID, FirstName fname, LastName, Title
+					SELECT EmployeeID, FirstName, LastName, Title
 					FROM employees
 					ORDER BY Title ASC, LastName DESC
 					""";
